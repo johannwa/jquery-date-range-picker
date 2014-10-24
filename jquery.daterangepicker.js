@@ -441,24 +441,24 @@
 
 			box.find('.next').click(function()
 			{
-				var isMonth2 = $(this).parents('table').hasClass('month2');
-				var month = isMonth2 ? opt.month2 : opt.month1;
-				month = nextMonth(month);
-				if (!opt.singleDate && !isMonth2 && compare_month(month,opt.month2) >= 0) return;
-				showMonth(month,isMonth2 ? 'month2' : 'month1');
-				showGap();
+                                var m;
+				m = nextMonth(opt.month1);
+				showMonth(m, 'month1');
+                                
+				m = nextMonth(opt.month2);
+				showMonth(m, 'month2');
 			});
+
 
 			box.find('.prev').click(function()
 			{
-				var isMonth2 = $(this).parents('table').hasClass('month2');
-				var month = isMonth2 ? opt.month2 : opt.month1;
-				month = prevMonth(month);
-				//if (isMonth2 && month.getFullYear()+''+month.getMonth() <= opt.month1.getFullYear()+''+opt.month1.getMonth()) return;
-				if (isMonth2 && compare_month(month,opt.month1) <= 0) return;
-				showMonth(month,isMonth2 ? 'month2' : 'month1');
-				showGap();
+                                var m;
+				m = prevMonth(opt.month1);
+				showMonth(m, 'month1');
+				m = prevMonth(opt.month2);
+				showMonth(m, 'month2');
 			});
+
 
 
 			box.bind('click',function(evt)
